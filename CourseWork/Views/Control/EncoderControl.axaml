@@ -1,0 +1,33 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:converters="clr-namespace:CourseWork.Converters"
+        xmlns:controls="using:CourseWork.Views.Control">
+  <Design.PreviewWith>
+	  <controls:EncoderControl />
+  </Design.PreviewWith>
+
+	<Styles.Resources>
+		<converters:FocusColorConverter x:Key="focusColor"/>
+	</Styles.Resources>
+
+  <Style Selector="controls|EncoderControl">
+    <Setter Property="Template">
+      <ControlTemplate>
+		  <Canvas Name="EncoderCanvas" Height="100" Width="80">
+			  <Path Data="M 0,0 l 80,0 l 0,100 l -80,0 l 0,-100" Stroke="{TemplateBinding FocusOnElement, Converter={StaticResource focusColor}}" StrokeThickness="1" Fill="LightCoral"/>
+			  <Ellipse Name="Input1" Fill="Brown" Width="10" Height="10" Canvas.Top="20"/>
+			  <Ellipse Name="Input2" Fill="Brown" Width="10" Height="10" Canvas.Bottom="40"/>
+			  <Ellipse Name="Input3" Fill="Brown" Width="10" Height="10" Canvas.Bottom="10"/>
+			  <Ellipse Name="Output1" Fill="Brown" Width="10" Height="10" Canvas.Top="30" Canvas.Left="70"/>
+			  <Ellipse Name="Output2" Fill="Brown" Width="10" Height="10" Canvas.Bottom="30" Canvas.Left="70"/>
+			  <TextBlock Text="Encoder" Canvas.Left="18" FontSize="11"/>
+			  <TextBlock Text="X1" Canvas.Top="18" Canvas.Left="12"/>
+			  <TextBlock Text="X2" Canvas.Top="45" Canvas.Left="12"/>
+			  <TextBlock Text="X3" Canvas.Top="75" Canvas.Left="12"/>
+			  <TextBlock Text="Y1" Canvas.Top="25" Canvas.Left="51"/>
+			  <TextBlock Text="Y2" Canvas.Top="55" Canvas.Left="51"/>
+		  </Canvas>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+</Styles>
